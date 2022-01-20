@@ -1,0 +1,150 @@
+<%- include('./partials/dashboard-header') -%>
+
+<div class="dashboard-container">
+	<div class="head">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="30"
+			height="30"
+			fill="currentColor"
+			class="bi bi-person-fill"
+			viewBox="0 0 16 16"
+		>
+			<path
+				d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+			/>
+		</svg>
+		<p class="welcome-msg">Welcome <%=name %></p>
+		<a href="/users/logout" class="btn btn-primary"
+			><i class="fas fa-sign-out-alt"></i> Logout</a
+		>
+	</div>
+	<div class="content">
+		<div class="left">
+			<ul>
+				<li>
+					<a href="/dashboard"><i class="fas fa-home"></i> Home</a>
+				</li>
+				<li>
+					<a href="/users/tests/<%=name%>"
+						><i class="fas fa-folder-open"></i> Your Quizes</a
+					>
+				</li>
+				<li>
+					<a href="/users/custom/<%=name%>"
+						><i class="fas fa-tools"></i> Custom Quiz</a
+					>
+				</li>
+				<li>
+					<a href="/users/result/<%=name%>"
+						><i class="fas fa-trophy"></i> Result</a
+					>
+				</li>
+			</ul>
+			<div>
+				<p>Logged in as :</p>
+				<p style="font-size: 1.7rem"><%=name%></p>
+			</div>
+		</div>
+		<div class="right">
+			<form action="/dashboard" method="post">
+				<div class="form-group">
+					<label for="name" class="test-h"
+						><i class="fas fa-file-alt"></i> Test Name</label
+					><br />
+					<input
+						required
+						type="text"
+						id="name"
+						name="testName"
+						placeholder="Enter Test Name"
+						class="form-control imp-input"
+						value=""
+					/>
+				</div>
+				<br />
+				<div class="form-group">
+					<label for="code" class="test-h"
+						><i class="fas fa-key"></i> Test Code</label
+					><br />
+					<input
+						required
+						type="text"
+						id="code"
+						name="testCode"
+						placeholder="Enter Test Code"
+						class="form-control imp-input"
+						value=""
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="category" class="question"
+						><i class="fas fa-list"></i> Category</label
+					>
+					<select class="form-control form-control-sm" name="category">
+						<% /*
+						<option value="">Any Category</option>
+						*/ %>
+						<option value="linux">Linux</option>
+						<option value="bash">Bash</option>
+						<option value="uncategorized">Uncategorized</option>
+						<option value="docker">Docker</option>
+						<option value="sql">SQL</option>
+						<option value="cms">CMS</option>
+						<option value="code">Code</option>
+						<option value="devops">DevOps</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="difficulty" class="question form-label"
+						><i class="fas fa-level-up-alt"></i> Difficulty</label
+					>
+					<select class="form-control form-control-sm" name="difficulty">
+						<% /*
+						<option value="">Any Difficulty</option>
+						*/ %>
+						<option value="Easy">Easy</option>
+						<option value="Medium">Medium</option>
+						<option value="Hard">Hard</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label class="form-label question"
+						><i class="fas fa-sort"></i> Number of questions</label
+					>
+					<select class="form-control form-control-sm" name="limit">
+						<option value="10">10</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+					</select>
+				</div>
+
+				<button type="submit" class="create">
+					<i class="fas fa-plus"></i> Create
+				</button>
+			</form>
+		</div>
+	</div>
+</div>
+<%- include('./partials/dashboard-footer') -%>

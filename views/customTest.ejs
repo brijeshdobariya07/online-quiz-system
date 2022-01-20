@@ -1,0 +1,312 @@
+<%- include('./partials/dashboard-header') -%>
+
+<div class="dashboard-container">
+	<div class="head">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="30"
+			height="30"
+			fill="currentColor"
+			class="bi bi-person-fill"
+			viewBox="0 0 16 16"
+		>
+			<path
+				d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+			/>
+		</svg>
+		<p class="welcome-msg">Welcome <%=name %></p>
+		<a href="/users/logout" class="btn btn-primary"
+			><i class="fas fa-sign-out-alt"></i> Logout</a
+		>
+	</div>
+	<div class="content">
+		<div class="left">
+			<ul>
+				<li>
+					<a href="/dashboard"><i class="fas fa-home"></i> Home</a>
+				</li>
+				<li>
+					<a href="/users/tests/<%=name%>"
+						><i class="fas fa-folder-open"></i> Your Quizes</a
+					>
+				</li>
+				<li>
+					<a href="/users/custom/<%=name%>"
+						><i class="fas fa-tools"></i> Custom Quiz</a
+					>
+				</li>
+				<li>
+					<a href="/users/result/<%=name%>"
+						><i class="fas fa-trophy"></i> Result</a
+					>
+				</li>
+			</ul>
+			<div>
+				<p>Logged in as :</p>
+				<p style="font-size: 1.7rem"><%=name%></p>
+			</div>
+		</div>
+
+		<div class="right">
+			<div class="form-details">
+				<form action="/users/custom/<%=name%>" method="post">
+					<h2><i class="fas fa-pencil-alt"></i>&ensp;Create Quiz</h2>
+					<br />
+					<div class="form-group row">
+						<label for="staticName" class="col-sm-2 col-form-label"
+							><i class="fas fa-user"></i>&ensp;Name</label
+						>
+						<div class="col-sm-10">
+							<input
+								type="text"
+								readonly
+								name="name"
+								class="form-control-plaintext"
+								id="staticName"
+								value="<%=name%>"
+							/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputEmail" class="col-sm-2 col-form-label"
+							><i class="fas fa-envelope"></i>&ensp;Email</label
+						>
+						<div class="col-sm-10">
+							<input
+								required
+								type="email"
+								name="email"
+								class="form-control"
+								id="inputEmail"
+								placeholder="Email"
+								value="<%= typeof email != 'undefined' ? email : '' %>"
+							/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputTestName" class="col-sm-2 col-form-label"
+							><i class="fas fa-file-alt"></i>&ensp; Test Name</label
+						>
+						<div class="col-sm-10">
+							<input
+								required
+								type="text"
+								name="testName"
+								class="form-control"
+								id="inputTestName"
+								placeholder="Enter Test Name"
+								value="<%= typeof testName != 'undefined' ? testName : '' %>"
+							/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputTestCode" class="col-sm-2 col-form-label"
+							><i class="fas fa-key"></i>&ensp;Test Code</label
+						>
+						<div class="col-sm-10">
+							<input
+								required
+								type="text"
+								name="testCode"
+								class="form-control"
+								id="inputTestCode"
+								placeholder="Enter Test Code"
+								value="<%= typeof testCode != 'undefined' ? testCode : '' %>"
+							/>
+						</div>
+					</div>
+
+					<div class="setQuestions">
+						<table class="table">
+							<tbody>
+								<tr>
+									<th scope="row" style="font-size: 1.2rem">
+										<i class="fas fa-lightbulb"></i>
+									</th>
+									<td style="font-weight: bold; font-size: 1.2rem">Question</td>
+									<td>
+										<input
+											required
+											type="text"
+											name="question"
+											placeholder="Question Name"
+											class="que-input que form-control"
+											value=""
+										/>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">1</th>
+									<td>answer_a</td>
+									<td>
+										<input
+											required
+											type="text"
+											name="answer_a"
+											placeholder="Answer A"
+											class="que-input op-a form-control"
+											value=""
+										/>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">2</th>
+									<td>answer_b</td>
+									<td>
+										<input
+											required
+											type="text"
+											name="answer_b"
+											placeholder="Answer B"
+											class="que-input op-b form-control"
+											value=""
+										/>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">3</th>
+									<td>answer_c</td>
+									<td>
+										<input
+											required
+											type="text"
+											name="answer_c"
+											placeholder="Answer C"
+											class="que-input op-c form-control"
+											value=""
+										/>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">4</th>
+									<td>answer_d</td>
+									<td>
+										<input
+											required
+											type="text"
+											name="answer_d"
+											placeholder="Answer D"
+											class="que-input op-d form-control"
+											value=""
+										/>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row"><i class="fas fa-check-circle"></i></th>
+									<td style="font-weight: bold">Correct-Answer</td>
+									<td>
+										<input
+											required
+											type="text"
+											name="correct_answer"
+											placeholder="Please Write Correct Answer like answer_a"
+											class="que-input right-a form-control"
+											value=""
+											pattern="answer_[a-d]"
+											oninvalid="this.setCustomValidity('Correct Answer Should be answer_ followd by [a to d]')"
+											oninput="setCustomValidity('')"
+										/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<button type="submit" class="create" style="margin: auto">
+							<i class="fas fa-plus"></i> ADD
+						</button>
+					</div>
+				</form>
+			</div>
+
+			<h4 class="see-test">See Created Test</h4>
+
+			<div class="viewTest">
+				<% if(typeof exam != 'undefined') { %>
+				<div class="view-test-details">
+					<h4>Name : <%=exam.name%></h4>
+					<h4>Email : <%=exam.email%></h4>
+					<h4 style="font-size: 1.2rem">Test Name : <%=exam.testName%></h4>
+					<h4 style="font-size: 1.2rem">Test Code : <%=exam.testCode%></h4>
+				</div>
+
+				<% let i = 1%> <% let j = 1%>
+
+				<div class="all-que">
+					<% exam.newData.forEach((que)=>{ %>
+
+					<div class="questions">
+						<br />
+						<h5 style="font-weight: bold">(<%=i%>) <%=que.question%></h5>
+						<% if( que.answers.answer_c !== null && que.answers.answer_d !==
+						null ){ %>
+						<p>A. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_a%></p>
+						<p>B. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_b%></p>
+						<p>C. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_c%></p>
+						<p>D. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_d%></p>
+						<br />
+						<h6 style="color: #63a4ff; font-weight: bold">
+							Correct Answer : <%=que.correct_answer%>
+						</h6>
+						<% } else{ %>
+						<p>A. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_a%></p>
+						<p>B. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_b%></p>
+						<br />
+						<h6 style="color: #63a4ff; font-weight: bold">
+							Correct Answer : <%=que.correct_answer%>
+						</h6>
+						<% }%>
+					</div>
+					<br />
+					<%i++%> <% }) %>
+				</div>
+			</div>
+
+			<% } else if(typeof createExam != 'undefined') { %>
+
+			<div class="viewTest">
+				<div class="view-test-details">
+					<h4>Name : <%=createExam.name%></h4>
+					<h4>Email : <%=createExam.email%></h4>
+					<h4 style="font-size: 1.2rem">
+						Test Name : <%=createExam.testName%>
+					</h4>
+					<h4 style="font-size: 1.2rem">
+						Test Code : <%=createExam.testCode%>
+					</h4>
+				</div>
+
+				<% let i = 1%> <% let j = 1%>
+
+				<div class="all-que">
+					<% createExam.newData.forEach((que)=>{ %>
+
+					<div class="questions">
+						<br />
+						<h5 style="font-weight: bold">(<%=i%>) <%=que.question%></h5>
+						<% if( que.answers.answer_c !== null && que.answers.answer_d !==
+						null ){ %>
+						<p>A. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_a%></p>
+						<p>B. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_b%></p>
+						<p>C. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_c%></p>
+						<p>D. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_d%></p>
+						<br />
+						<h6 style="color: #63a4ff; font-weight: bold">
+							Correct Answer : <%=que.correct_answer%>
+						</h6>
+						<% } else{ %>
+						<p>A. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_a%></p>
+						<p>B. &nbsp;&nbsp;&nbsp;<%= que.answers.answer_b%></p>
+						<br />
+						<h6 style="color: #63a4ff; font-weight: bold">
+							Correct Answer : <%=que.correct_answer%>
+						</h6>
+						<% }%>
+					</div>
+					<br />
+					<%i++%> <% }) %>
+				</div>
+				<% }%>
+			</div>
+		</div>
+	</div>
+</div>
+<%- include('./partials/dashboard-footer') -%>

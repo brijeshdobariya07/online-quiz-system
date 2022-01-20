@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/Montserrat-Black.ttf');
+} 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    /* background-color: #7ee8fa;
+    background-image: linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
+    background-color: #ffcfdf;
+    background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%); */
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+}
+h4{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.heading{
+    padding: 0.5rem;
+    font-family: 'Montserrat';
+    text-align: center;
+    font-size: 3rem;
+    background: linear-gradient(120deg,rgb(154, 59, 233),rgb(227, 155, 255));
+    background: black;
+    color: white;
+    border-radius: 20px;
+    margin: 0.5rem 0;
+}
+
+.stu-details,.quiz-que{
+    margin: 1rem 0;
+    border: none;
+    border-radius: 20px;
+    padding: 1.5rem 2.5rem;
+    background: #f2f2f2;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.mcqs{
+    margin-left: 1.5rem;
+}
+.create{
+    width: 7rem;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    margin: 1rem 0 2rem 0;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    background: #f2f2f2;
+    color: black;
+    transition: 0.3s;
+}
+.create:hover{
+    background: linear-gradient(120deg,rgb(154, 59, 233),rgb(227, 155, 255));
+    color: white;
+}
+i{
+    margin-right: 1rem;
+}
+
+.back{
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    text-decoration: none;
+    color: black;
+    font-size:2.7rem;
+}
+
+

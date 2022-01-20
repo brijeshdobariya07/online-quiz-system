@@ -1,0 +1,166 @@
+@font-face {
+    font-family: 'Montserrat-b';
+    src: url('../fonts/Montserrat/Montserrat-Black.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat-s';
+    src: url('../fonts//Montserrat/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Hahmlet';
+    src: url('../fonts/Hahmlet/Hahmlet-VariableFont_wght.ttf');
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    font-family: 'Hahmlet',Arial, Helvetica, sans-serif;
+}
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: aqua; */
+    height: 60px;
+    padding: 0 52px;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    width: 100%;
+}
+.nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-right: 60px;
+}
+
+.nav-link{
+    list-style-type: none;
+    color: black;
+    font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    margin-right: 40px;
+}
+.nav-link a{
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+.nav-link a:hover{
+    color: rgb(92, 209, 255);
+}
+
+.logo{
+    font-size: 3rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular';
+    font-weight: 500;
+    margin-right: 100px;
+    margin-bottom: 10px;
+}
+
+.code{
+    padding: 8px 10px;
+    width: 8rem;
+    height: 2.3rem;
+    border: none;
+    border-radius: 10px;
+    background: #f3f3f3;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    position: relative;
+    left: 150px;
+    transition: 0.5s;
+    text-decoration: none;
+}
+.student:hover{
+    background: rgb(196, 229, 190);
+    color: black !important;
+}
+.teacher:hover{
+    border: 1px solid black;
+    background: white;
+    color: black !important;
+}
+
+.code-link{
+    text-decoration: none;
+}
+.student{
+    color: black;
+    float: left;
+}
+.teacher{
+    background: black;
+    color: white !important;
+}
+
+.nav-links > li:last-child{
+    margin-left: 30px;
+}
+
+
+
+
+#content{
+    display: grid;
+    font-family: 'Montserrat';
+    padding: 0 0 50px 52px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+.main-heading{
+    font-size: 3rem;
+    font-weight: bold;
+    white-space: pre-line;
+    color: #bd69ff;
+    margin: 80px 0 26px 0;
+}
+.sub-heading{
+    font-size: 1.3rem;
+    white-space: pre-line;
+}
+.heading-code{
+    position: relative;
+    left: 0;
+    top: 50px;
+}
+
+.img img{
+    max-width: 400px;
+    max-height: 400px;
+    margin-left: 7rem;
+    margin-top: 5rem;
+}
+
+
+
+
+
+/* Content-2 */
+
+#content-2{
+    height: 40rem;
+    background: linear-gradient(140deg,#e1bbff,#7ff1e3);
+    border-top: 1rem dashed white;
+    border-spacing: 2rem;
+    background-clip: border-box;
+}

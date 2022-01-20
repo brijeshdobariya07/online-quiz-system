@@ -1,0 +1,68 @@
+<%- include('./partials/dashboard-header') -%>
+
+<div class="dashboard-container">
+	<div class="head">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="30"
+			height="30"
+			fill="currentColor"
+			class="bi bi-person-fill"
+			viewBox="0 0 16 16"
+		>
+			<path
+				d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+			/>
+		</svg>
+		<p class="welcome-msg">Welcome <%=name %></p>
+		<a href="/users/logout" class="btn btn-primary"
+			><i class="fas fa-sign-out-alt"></i> Logout</a
+		>
+	</div>
+	<div class="content">
+		<div class="left">
+			<ul>
+				<li>
+					<a href="/dashboard"><i class="fas fa-home"></i> Home</a>
+				</li>
+				<li>
+					<a href="/users/tests/<%=name%>"
+						><i class="fas fa-folder-open"></i> Your Quizes</a
+					>
+				</li>
+				<li>
+					<a href="/users/custom/<%=name%>"
+						><i class="fas fa-tools"></i> Custom Quiz</a
+					>
+				</li>
+				<li>
+					<a href="/users/result/<%=name%>"
+						><i class="fas fa-trophy"></i> Result</a
+					>
+				</li>
+			</ul>
+			<div>
+				<p>Logged in as :</p>
+				<p style="font-size: 1.7rem"><%=name%></p>
+			</div>
+		</div>
+		<div class="right">
+
+            <div class="myExamDetails">
+                <% examDetails.forEach((details)=>{ %>
+
+                    <a href="/users/result/<%=name%>/<%=details.testCode%>" class="allTest">
+                        <div class="tests">
+                            <h4><i class="fas fa-file-alt" style="margin-right: 1rem;"></i> Test Name : <%=details.testName%> </h4>
+                            <h5><i class="fas fa-key" style="margin-right: 1rem;"></i> Test Code : <%=details.testCode%></h4>
+                        </div>
+                    </a>
+
+                <%  }) %>
+            </div>
+
+
+        </div>
+	</div>
+</div>
+<%- include('./partials/dashboard-footer') -%>

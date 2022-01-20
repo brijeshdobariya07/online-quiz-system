@@ -1,0 +1,63 @@
+<%- include('./partials/header.ejs') -%>
+        <!-- Header Section -->
+        <header id="header">
+            <nav class="nav">
+
+                <div class="logo">
+                    Quizy
+                </div>
+                <div>
+                <ul class="nav-links">
+                    <li class="nav-link"><a href="" class="">Home</a></li>
+                    <li class="nav-link"><a href="" class="">Solutions</a></li>
+                    <li class="nav-link"><a href="" class="">About</a></li>
+                    <li class="nav-link"><a href="" class="">Contact</a></li>
+
+                    <!-- <li class="nav-link"><button class="code student"><a href="users/code" class="code-link student" >Enter Code</a></button></li>
+                    <li class="nav-link"><button class="code teacher"><a href="users/register" class="code-link teacher">For Teachers</a></button></li> -->
+                    <li class="nav-link"><a href="/code" class="code student" >Enter Code</a></li>
+                    <li class="nav-link"><a href="users/login" class="code teacher">For Teachers</a></li>
+                
+                </ul>
+            </div>
+            </nav>
+        </header>
+        <!-- Header section -->
+
+
+        <!-- content section -->
+         <div id="content">
+            <div class="headline">
+
+                <p class="main-heading">Now Create & Take
+Quizes Easily
+With Fun
+                </p>
+
+                <p class="sub-heading">Enter Code, Give Test, See Results
+That’s It, No more Paper-Work
+Enter code which your teacher gave you</p>
+
+                <!-- <button class="code heading-code"><a href="users/code" class="code-link student" >Enter Code</a></button> -->
+                <a href="/code" class="code student heading-code" >Enter Code</a>
+
+            </div>
+
+            <div class="img">
+                    <img src="img/main-img.jpg" alt="">
+            </div>
+         </div>
+        <!-- content section -->
+
+
+        
+        <script type="text/javascript">
+
+            var thisMarks = <%=marks %>;
+            if( thisMarks != ''){
+                alert("Your Marks are " + thisMarks)
+        
+            }
+        </script>
+
+<%- include('./partials/footer.ejs') -%>
